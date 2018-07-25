@@ -45,7 +45,8 @@ function initZTree(url) {
 				}
 			};
 			var zNodes = data;
-			$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+			var objTree=$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+            objTree.expandAll(false);
 		}
 	});
 }

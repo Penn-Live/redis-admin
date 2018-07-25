@@ -1,15 +1,21 @@
+<%@ page import="org.springframework.security.core.userdetails.User" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String basePath = request.getContextPath();
+	Object isAdmin = session.getAttribute("isAdmin");
+
+
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- 右侧列表  -->
 <div class="container" style="width: 98%; align: center;">
 
 <div class="col-sm-12 col-md-12 main">
-	
+
 	<div class="col-sm-3 col-md-3">
+		<c:if test="${isAdmin}">
 		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#addServerModal" data-whatever="addServer">addServer</button>
+		</c:if>
 		<button type="button" class="refresh_btn btn btn-default" >refresh</button>
 	</div>
 	
@@ -36,9 +42,11 @@
 		</div>
 		
 		<div class="col-sm-offset-5 col-md-offset-5 ">
-			<button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal" data-whatever="add">add</button>
-			<button type="button" class="edit_btn btn btn-info" >view/update</button>
-			<button type="button" class="delete_btn btn btn-info" value1="delete" >delete</button>
+			<c:if test="${isAdmin}">
+				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal" data-whatever="add">add</button>
+				<button type="button" class="edit_btn btn btn-info" >view/update</button>
+				<button type="button" class="delete_btn btn btn-info" value1="delete" >delete</button>
+			</c:if>
 			<button type="button" class="refresh_btn btn btn-default" >refresh</button>
 			<button type="button" class="changeShowType_btn btn btn-default" value1="${change2ShowType}" >${change2ShowType} Type</button>
 		</div>

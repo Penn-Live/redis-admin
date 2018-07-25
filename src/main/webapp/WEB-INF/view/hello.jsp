@@ -24,7 +24,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Hello, world!</h1>
+		<h1>已登出</h1>
 	</div>
 	<!-- /.container -->
 	<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->

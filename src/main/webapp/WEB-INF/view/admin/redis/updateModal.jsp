@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String basePath = request.getContextPath();
+	Object isAdmin = session.getAttribute("isAdmin");
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -69,15 +70,20 @@
 									<div class="input-group">
 										<span class="input-group-addon">value</span>
 										<input name="value" type="text" class="requireds form-control" placeholder="value"  > 
-										<span class="input-group-btn">
-											<button class="update_minus_btn btn btn-default" type="button" value1="STRING">
-												<span class="glyphicon glyphicon-minus" />
-											</button>
-										</span>
+										<%--<span class="input-group-btn">--%>
+											<%--<button class="update_minus_btn btn btn-default" type="button" value1="STRING">--%>
+												<%--<span class="glyphicon glyphicon-minus" />--%>
+											<%--</button>--%>
+										<%--</span>--%>
 									</div>
 								<!-- <input name="value" class="form-control" > -->
 								</td>
-								<td><button type="button" class="update_redis_btn btn btn-info">update</button></td>
+
+								<td>
+									<c:if test="${isAdmin}">
+										<button type="button" class="update_redis_btn btn btn-info">update</button>
+									</c:if>
+								</td>
 							</tr>
 						</tbody>
 					</table>
@@ -98,18 +104,23 @@
 									<div class="input-group">
 										<span class="input-group-addon">value</span>
 										<input name="value" type="text" class="requireds form-control" placeholder="value"  > 
-										<span class="input-group-btn">
-											<button class="update_plus_btn btn btn-default" type="button" value1="LIST">
-												<span class="glyphicon glyphicon-plus" />
-											</button>
-											<button class="update_minus_btn btn btn-default" type="button" value1="LIST">
-												<span class="glyphicon glyphicon-minus" />
-											</button>
-										</span>
+										<%--<span class="input-group-btn">--%>
+											<%--<button class="update_plus_btn btn btn-default" type="button" value1="LIST">--%>
+												<%--<span class="glyphicon glyphicon-plus" />--%>
+											<%--</button>--%>
+											<%--<button class="update_minus_btn btn btn-default" type="button" value1="LIST">--%>
+												<%--<span class="glyphicon glyphicon-minus" />--%>
+											<%--</button>--%>
+										<%--</span>--%>
 									</div>
 								<!-- <input name="value" class="form-control" > -->
 								</td>
-								<td><button type="button" class="update_redis_btn btn btn-info">lpush</button></td>
+								<td>
+									<c:if test="${isAdmin}">
+										<button type="button" class="update_redis_btn btn btn-info">lpush</button>
+									</c:if>
+								</td>
+
 							</tr>
 						</tbody>
 					</table>
@@ -130,17 +141,22 @@
 									<div class="input-group">
 										<span class="input-group-addon">value</span>
 										<input name="value" type="text" class="requireds form-control" placeholder="value"  > 
-										<span class="input-group-btn">
-											<button class="update_plus_btn btn btn-default" type="button" value1="SET">
-												<span class="glyphicon glyphicon-plus" />
-											</button>
-											<button class="update_minus_btn btn btn-default" type="button" value1="SET">
-												<span class="glyphicon glyphicon-minus" />
-											</button>
-										</span>
+										<%--<span class="input-group-btn">--%>
+											<%--<button class="update_plus_btn btn btn-default" type="button" value1="SET">--%>
+												<%--<span class="glyphicon glyphicon-plus" />--%>
+											<%--</button>--%>
+											<%--<button class="update_minus_btn btn btn-default" type="button" value1="SET">--%>
+												<%--<span class="glyphicon glyphicon-minus" />--%>
+											<%--</button>--%>
+										<%--</span>--%>
 									</div>
 								</td>
-								<td><button type="button" class="update_redis_btn btn btn-info">update</button></td>
+								<td>
+									<c:if test="${isAdmin}">
+										<button type="button" class="update_redis_btn btn btn-info">update</button>
+									</c:if>
+								</td>
+
 							</tr>
 						</tbody>
 					</table>
@@ -162,18 +178,23 @@
 									<div class="input-group">
 										<span class="input-group-addon">value</span>
 										<input name="value" type="text" class="requireds form-control" placeholder="value" readonly> 
-										<span class="input-group-btn">
-											<button class="update_plus_btn btn btn-default" type="button" value1="ZSET">
-												<span class="glyphicon glyphicon-plus" />
-											</button>
-											<button class="update_minus_btn btn btn-default" type="button" value1="ZSET">
-												<span class="glyphicon glyphicon-minus" />
-											</button>
-										</span>
+										<%--<span class="input-group-btn">--%>
+											<%--<button class="update_plus_btn btn btn-default" type="button" value1="ZSET">--%>
+												<%--<span class="glyphicon glyphicon-plus" />--%>
+											<%--</button>--%>
+											<%--<button class="update_minus_btn btn btn-default" type="button" value1="ZSET">--%>
+												<%--<span class="glyphicon glyphicon-minus" />--%>
+											<%--</button>--%>
+										<%--</span>--%>
 									</div>
 								<!-- <input name="member" class="form-control" > -->
 								</td>
-								<td><button type="button" class="update_redis_btn btn btn-info">update</button></td>
+								<td>
+									<c:if test="${isAdmin}">
+										<button type="button" class="update_redis_btn btn btn-info">update</button>
+									</c:if>
+								</td>
+
 							</tr>
 						</tbody>
 					</table>
@@ -195,18 +216,23 @@
 									<div class="input-group">
 										<span class="input-group-addon">value</span>
 										<input name="value" type="text" class="requireds form-control" placeholder="value"  > 
-										<span class="input-group-btn">
-											<button class="update_plus_btn btn btn-default" type="button" value1="HASH">
-												<span class="glyphicon glyphicon-plus" />
-											</button>
-											<button class="update_minus_btn btn btn-default" type="button" value1="HASH">
-												<span class="glyphicon glyphicon-minus" />
-											</button>
-										</span>
+										<%--<span class="input-group-btn">--%>
+											<%--<button class="update_plus_btn btn btn-default" type="button" value1="HASH">--%>
+												<%--<span class="glyphicon glyphicon-plus" />--%>
+											<%--</button>--%>
+											<%--<button class="update_minus_btn btn btn-default" type="button" value1="HASH">--%>
+												<%--<span class="glyphicon glyphicon-minus" />--%>
+											<%--</button>--%>
+										<%--</span>--%>
 									</div>
 								<!-- <input name="value" class="form-control"> -->
 								</td>
-								<td><button type="button" class="update_redis_btn btn btn-info">update</button></td>
+								<td>
+									<c:if test="${isAdmin}">
+										<button type="button" class="update_redis_btn btn btn-info">update</button>
+									</c:if>
+								</td>
+
 							</tr>
 						</tbody>
 					</table>
